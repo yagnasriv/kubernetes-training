@@ -1,0 +1,33 @@
+## Sample deployment.yaml file for creating a pod 
+## This script, create a deployment, creates a pod and also create a replica set
+
+apiVersion: apps/v1
+kind: Deployment ## when kind is changed from pod to deployment, it automatically creates the pod and replica set after creating a deployment file
+metadata:
+  name: nginx-deployment
+  labels:
+    app: nginx
+spec:
+  replicas: 3 ## The count of pods to be created is 3 
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.14.2
+        ports:
+        - containerPort: 80
+
+
+## command: kubectl create -f deployment.yaml - will create a deployment file
+## command: kubectl get deploy - will list the created deployments
+## command: kubectl get pods - will list the created pods
+## command: kubectl get rs - will list the created replica sets
+
+## Note: when you try to delete the pod, it will automatically creates the pod because of the replica set added in the deployment file
+## Command: kubectl get pods -w - command will help you watch the pods getting terminated or running etc..
