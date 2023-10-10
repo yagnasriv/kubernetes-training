@@ -1,5 +1,5 @@
 # Services in Kubernetes 
-____________________________________________________________________________
+___________________________________________________________________________________________________
 
 - Service is a critical component in k8s
 - ***** In prod scenario, we dont deploy a pod, we deploy a deployment  *****.
@@ -11,9 +11,9 @@ ____________________________________________________________________________
     - say we have requirement of creating 3 replicas, 
 
         
-        **Deployment ---> Replica Set = 3  ---> POD1 --> Ip Address 172.6.10.1   [After autohealing        ---> 172.6.10.11
-                        (desired state     ---> POD2 --> Ip address 172.6.10.2  the ip Address of pods     ---> 172.6.10.12   
-                        is set to 3)       ---> POD3 --> Ip address 172.6.10.3    get to change]           ---> 172.6.10.15**
+        Deployment ---> Replica Set = 3  ---> POD1 --> Ip Address 172.6.10.1   [After autohealing      ---> 172.6.10.11
+                        (desired state   ---> POD2 --> Ip address 172.6.10.2  the ip Address of pods   ---> 172.6.10.12   
+                        is set to 3)     ---> POD3 --> Ip address 172.6.10.3    get to change]         ---> 172.6.10.15
 
                         <***** This is where are auto healing the testers or end users will not be able to access
                         the pod since the ip address got changed after auto healing and This is where the Service - SVC comes in>
@@ -21,9 +21,8 @@ ____________________________________________________________________________
         
     - SVC feature is added on top of the Deployment, which acts a Load balancer and with the help of kubeproxy the end users will be able to access the PODS
 
-      **  Deployment --> Service - SVC --> Replica set --> PODS
-**
+        Deployment --> Service - SVC --> Replica set --> PODS
 
 
 
-- ***** What is an ideal POD size ? it depends on the no. of concurrent users and no. of users/ no. of requests one replica of your application can handle ***** 
+*** What is an ideal POD size ? it depends on the no. of concurrent users and no. of users/ no. of requests one replica of your application can handle ****
