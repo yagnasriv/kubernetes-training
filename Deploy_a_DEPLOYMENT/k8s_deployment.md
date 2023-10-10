@@ -55,3 +55,7 @@ ________________________________________________________________________________
 - This is how Kubernetes implements AUTO-HEALING capability by using deployment , replica set and pod.
 
 <NOTE: In real world/Production , you will not create a POD directly, you will create a Deployment and then it creates a Replica set and it creates a POD for you >
+
+___________________________________________________________________________________________________
+
+- Refer to Kubernetes repo in github for examples: https://github.com/kubernetes/examples.git
