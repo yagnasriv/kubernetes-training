@@ -2,7 +2,7 @@
 ___________________________________________________________________________________________________
 
 - Service is a critical component in k8s
-- ***** In prod scenario, we dont deploy a pod, we deploy a deployment  *****.
+*** In production scenario, we dont deploy a pod, we deploy a deployment  ***
 - once you deploy a deployment, you create a service in the world of kubernetes and why we create service and what is the importance of the service ? 
 
 - ### Why do we need a service in k8s ? 
@@ -45,11 +45,11 @@ ________________________________________________________________________________
 
         Deployment --> Service - SVC --> Replica set --> PODS
 
-### ADVANTAGES OF SERVICE IN K8S
+- ### ADVANTAGES OF SERVICE IN K8S
 
-1. Advantage of Service AKA SVC in Kubernetes it offers Load Balancing.
-2. 2nd advantage is Service Discovery mechanism - Provided Labels and Selectors.
-3. It can also expose to External world. 
+    1. Advantage of Service AKA SVC in Kubernetes it offers Load Balancing.
+    2. 2nd advantage is Service Discovery mechanism - Provided Labels and Selectors.
+    3. It can also expose to External world. 
 
 ___________________________________________________________________________________________________
 
