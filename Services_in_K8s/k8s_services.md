@@ -48,10 +48,38 @@ ________________________________________________________________________________
 ### ADVANTAGES OF SERVICE IN K8S
 
 1. Advantage of Service AKA SVC in Kubernetes it offers Load Balancing.
-2. 2nd advantage is Service Discovery - 
+2. 2nd advantage is Service Discovery mechanism - Provided Labels and Selectors.
+3. It can also expose to External world. 
 
 ___________________________________________________________________________________________________
 
 *** What is an ideal POD size ? it depends on the no. of concurrent users and no. of users/ no. of requests one replica of your application can handle ****
 
 ___________________________________________________________________________________________________
+
+### What service discorvery says is
+- service is keeping a track of deployment, say for 3 pods and one of the ip address is changed and service comes up with a new process called <Labels> and <Selectors>, unlike manually keeping track of ip addresses which can change frequently , Service came up with a new process called Labels and Selectors.
+- if there are 1000 pods, service will not be able to manually track the ip addresses, then service introduced Labels and selectors that will create a Label for every pod when is created by the Developer.
+- Label will be common for all the pods, Example: Pod 1 is created with Label called Payments, POD2 is created with label - FileSystem etc..,
+- Service will not bother about ip address, it will only watch the Label for the pod. 
+- If a Pod with Replica_set is killed, then a new pod is created and the ip address will be changed, But if a Pod is created with a Label and Replica_set, then if the pod gets killed a new pod will be created with different ip address and the same Label name. This happens because the REPLICA_SET controller is using the same deployment.yaml file to deploy the pod and that is where Service Discovery solves the auto healing issue.
+- Label is similar to a Tag.
+
+___________________________________________________________________________________________________
+
+- 3rd advantage is It can also expose to external world.
+- A service can expose your application to the outside world.
+- Service can allow your application to get accessed from outside of the k8s cluster.
+
+
+### You can create a Service in 3 Different ways through YAML file
+
+- you can create service in 3 types
+    1. Cluster IP   - This will be a by default mode, application will be accessed in side the K8s cluster & has two benefits will occuer that is Service Discovery and Load Balancing. 
+    
+    2. NodePort mode    - Service will allow your application to be accessed inside your Organization. (Worker node ip_address), Who ever has access to worker_node ip_address they can only access the application.
+    
+    3. Load Balancer Type   - your service will expose your application to external world. 
+        - Example: you have deployed pods on EKS cluster, you will get an Elastic LB Ip_Address, which is public ip address then who ever is trying to access the application can be accessed it from anywhere.
+    
+    (NOTE: This Service - Load Balancer Type will not work on locally on minikube, only works on cloud providers  )
