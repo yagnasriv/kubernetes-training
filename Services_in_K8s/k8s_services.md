@@ -11,9 +11,11 @@ ________________________________________________________________________________
     - say we have requirement of creating 3 replicas, 
 
         
-        Deployment ---> Replica Set = 3 ---> POD1 --> Ip Address 172.6.10.1                 ---> 172.6.10.11
-                                        ---> POD2 --> Ip address 172.6.10.2 - Auto-Heals &  ---> 172.6.10.12   
+        $$
+                                        ---> POD1 --> Ip Address 172.6.10.1                 ---> 172.6.10.11
+        Deployment ---> Replica Set = 3 ---> POD2 --> Ip address 172.6.10.2 - Auto-Heals &  ---> 172.6.10.12   
                                         ---> POD3 --> Ip address 172.6.10.3                 ---> 172.6.10.15
+        $$
 
     - This is where are auto healing happens the testers or end users will not be able to access the pods since the ip address got changed after auto healing and This is where the Service - SVC comes in.
     - When a Service AKA SVC is applied on top of a Deployment, you are informing the end users not to login into the pods using the ip address, instead they can go to SVC and from there they can access the PODS.       
