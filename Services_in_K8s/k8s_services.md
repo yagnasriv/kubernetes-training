@@ -5,7 +5,8 @@ ________________________________________________________________________________
 - ***** In prod scenario, we dont deploy a pod, we deploy a deployment  *****.
 - once you deploy a deployment, you create a service in the world of kubernetes and why we create service and what is the importance of the service ? 
 
-- Why do we need a service in k8s ? 
+- ### Why do we need a service in k8s ? 
+
     - No service, Then --> What if there is no concept of services in k8s , then a scenaio of no service ?
     - usually a developer will deploy a pod as a deployment in k8s and that deployment will create a replica set and that replica set will create a pod, 
     - say we have requirement of creating 3 replicas
@@ -34,8 +35,8 @@ ________________________________________________________________________________
 1. Advantage of Service AKA SVC in Kubernetes it offers Load Balancing.
 2. 2nd advantage is Service Discovery - 
 
-________________________________________________________________________________
+___________________________________________________________________________________________________
 
 *** What is an ideal POD size ? it depends on the no. of concurrent users and no. of users/ no. of requests one replica of your application can handle ****
 
-__________________________________________________________________________________
+___________________________________________________________________________________________________
