@@ -11,9 +11,22 @@ ________________________________________________________________________________
     - usually a developer will deploy a pod as a deployment in k8s and that deployment will create a replica set and that replica set will create a pod, 
     - say we have requirement of creating 3 replicas
 
-                                        ---> POD1 --> IP_Address 172.6.10.1                     ---> 172.6.10.11
-        Deployment ---> Replica_Set = 3 ---> POD2 --> IP_Address 172.6.10.2 - Auto_Healing &    ---> 172.6.10.12
-                                        ---> POD3 --> IP_Address 172.6.10.3                     ---> 172.6.10.15
+        Deployment.yaml --> creates Replica_Set
+                        --> creates POD / PODS, Example: IP Address - 172.6.0.1
+                        --> Auto healing happens
+                        --> POD recreation
+                        --> IP Address changes, Exmaple: New IP Address - 172.6.0.5
+                        --> End user won't be able to connect to Application with new IP Address
+
+        - When you add a "Service / svc" 
+
+        Deployment.yaml --> Adds a Service / svc
+                        --> create Replica_SET
+                        --> creates PODs, Example: IP Address: 192.10.0.1
+                        --> Auto Healing happens
+                        --> POD get recreated
+                        --> Ip Address changes, Example: IP Address: 192.10.0.10 
+                        --> End user will be able to access the Application with the help of "application_name.default.svc" URL
 
 
     - This is where are auto healing happens the testers or end users will not be able to access the pods since the ip address got changed after auto healing and This is where the Service - SVC comes in.
