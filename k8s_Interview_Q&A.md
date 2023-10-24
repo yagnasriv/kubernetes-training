@@ -27,9 +27,12 @@
 
 
 5. What is a namespace in Kubernetes ?
-    - Namespace is a K8s cluster is being accessed by multiple users in a company, 
+    - K8s cluster is being accessed by multiple users in a organization, there are multiple projects and for each project you won't be able to create k8s cluster in production,End of the day, There might be 20 Projects trying to work on 20 microservices / Application and 20 Different teams might be working together on to create a end product.
+    - Example: Take Amazon.com, 20 diff team working on 20 diff microservices all these 20 microservices talk to each other to work as a single applciation. 
     - In simple terms, Namespace is a Logicial isolation of resources, network policies, rbac. 
     - Example: There are two projects using same K8s cluster, One project can use namespace1 and other project can use namespace2 without any overlap and authentication process.
 
 
-6. 
+6. What is the Role of KubeProxy ?
+    - KubeProxy is an essential component of a k8s cluster, as it ensures that services can communicate with each other.
+    - Kube-Proxy works by maintaining a set of network rules on each node in the cluster, which are updated dynamically as services are added or removed.
